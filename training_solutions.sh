@@ -31,6 +31,11 @@ gzip HJMTYDSX2_104610-001-001_AGTCTCAC-CGTCCATT_L004.subset_1.fastq
 
 #### EXERCISE 2 ####
 
+## print the help file for BWA
+bwa 
+bwa index
+bwa mem
+
 ## downloading reference genome via wget and index for BWA
 cd ~/unix_training/data/
 wget https://plasmodb.org/common/downloads/Current_Release/PvivaxP01/fasta/data/PlasmoDB-55_PvivaxP01_Genome.fasta
