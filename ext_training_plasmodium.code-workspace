@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "SSH FS - calcua_ext_training_plasmodium",
+			"uri": "ssh://calcua_ext_training_plasmodium/user/antwerpen/205/vsc20587/scratch/ext_training_plasmodium/bin/"
+		}
+	],
+	"settings": {}
+}
