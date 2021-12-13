@@ -28,6 +28,28 @@ less HJMTYDSX2_104610-001-001_AGTCTCAC-CGTCCATT_L004.subset_1.fastq
 wc HJMTYDSX2_104610-001-001_AGTCTCAC-CGTCCATT_L004.subset_1.fastq
 gzip HJMTYDSX2_104610-001-001_AGTCTCAC-CGTCCATT_L004.subset_1.fastq
 
+#### advanced exercises 
+
+## usage of MD5 sumcheck to check integrity of files. First
+## create the md5sum list in the directory from which you want
+## to copy (if you have write access)
+cd /home/itg.be/pmonsieurs/data/fastq/*
+md5sum *.gz > checksum_fastq_files.md5
+
+## after copy-pasting all files, including the checksum file, 
+## check whether all files are copied correctly
+cd ~/unix_training/data/
+md5sum -c checksum_fastq_files.md5
+
+
+## use the rsync commands instead of cp
+rsync -a -v fastq/ test_rsync/
+## remove two random files from the test_rsync directory 
+## and try rsync again. 
+rsync -a -v fastq/ test_rsync/
+
+
+
 
 #### EXERCISE 2 ####
 
@@ -103,7 +125,7 @@ do
     file_prefix=${fastq_file_R1%_R1.fastq.gz}
     fastq_file_R2=${fastq_file_R1/_R1.fastq.gz/_R2.fastq.gz}
     bam_file=${fastq_file_R1/_R1.fastq.gz/.bam}
-    bwa mem -R "@RG\tID:001\tSM:001\tPL:ILLUMINA" \
+    bwa mem -R "@RG\tID:${file_prefix}\tSM:001\tPL:ILLUMINA" \
         -k 30 \
         -t 2 \
         PlasmoDB-55_PvivaxP01_Genome.fasta \
