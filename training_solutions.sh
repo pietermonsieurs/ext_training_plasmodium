@@ -100,6 +100,9 @@ bwa mem -R "@RG\tID:001\tSM:001\tPL:ILLUMINA" \
 ## defined the R1 fastq-file as a variable to 
 ## partially automatize the process
 fastq_file_R1=HJMTYDSX2_104610-001-001_AGTCTCAC-CGTCCATT_L004.subset_R1.fastq.gz
+
+fastq_file_R1=HJMTYDSX2_104610-001-021_CGGATTGA-ACGTCGTT_L004.subset_R1.fastq.gz
+
 fastq_file_R2=${fastq_file_R1/_R1.fastq.gz/_R2.fastq.gz}
 bam_file=${fastq_file_R1/_R1.fastq.gz/.bam}
 
@@ -122,7 +125,6 @@ bwa mem -R "@RG\tID:001\tSM:001\tPL:ILLUMINA" \
 ## or you can use a for loop
 for fastq_file_R1 in *_R1.fastq.gz
 do
-    file_prefix=${fastq_file_R1%_R1.fastq.gz}
     fastq_file_R2=${fastq_file_R1/_R1.fastq.gz/_R2.fastq.gz}
     bam_file=${fastq_file_R1/_R1.fastq.gz/.bam}
     bwa mem -R "@RG\tID:${file_prefix}\tSM:001\tPL:ILLUMINA" \
